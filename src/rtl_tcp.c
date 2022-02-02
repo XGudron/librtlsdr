@@ -18,9 +18,7 @@
  */
 
 #include <errno.h>
-#include <signal.h>
 #include <string.h>
-#include <stdio.h>
 #include <stdlib.h>
 
 #ifndef _WIN32
@@ -37,6 +35,8 @@
 #include "getopt/getopt.h"
 #endif
 
+#include <stdio.h>
+#include <signal.h>
 #include <pthread.h>
 
 #include "rtl-sdr.h"

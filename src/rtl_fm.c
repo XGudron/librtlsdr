@@ -1210,7 +1210,7 @@ int main(int argc, char **argv)
 	if (strcmp(output.filename, "-") == 0) { /* Write samples to stdout */
 		output.file = stdout;
 #ifdef _WIN32
-		_setmode(_fileno(output.file), _O_BINARY);
+		_setmode(fileno(output.file), O_BINARY);
 #endif
 	} else {
 		output.file = fopen(output.filename, "wb");

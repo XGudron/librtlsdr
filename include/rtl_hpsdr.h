@@ -21,8 +21,8 @@
  */
 
 #include <stdlib.h>
-#include <stdio.h>
 #ifndef _WIN32
+#include <stdio.h>
 #include <unistd.h>
 #include <arpa/inet.h>
 #include <sys/socket.h>
