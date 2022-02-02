@@ -21,6 +21,7 @@
  */
 
 #include <stdlib.h>
+
 #ifndef _WIN32
 #include <stdio.h>
 #include <unistd.h>
@@ -36,13 +37,14 @@
 #include <netdb.h>
 #include <fcntl.h>
 #include <ifaddrs.h>
-#include <fftw3.h>
 #else
 #include <winsock2.h>
 #include <windows.h>
 #include <ws2tcpip.h>
 #include <iphlpapi.h>
 #endif
+
+#include <fftw3.h>
 #include <sys/timeb.h>
 #include <pthread.h>
 #include <stdbool.h>
@@ -54,6 +56,7 @@
 #include <libgen.h>
 #include <errno.h>
 #include <rtl-sdr.h>
+
 #ifdef INCLUDE_NEON
 #include <arm_neon.h>
 #elif defined INCLUDE_SSE2
@@ -179,11 +182,11 @@ int get_addr(int sock);
 void hpsdrsim_reveal(void);
 int parse_config(char* conf_file);
 
-pthread_t hpsdrsim_thread_id;
+static pthread_t hpsdrsim_thread_id;
 void* hpsdrsim_thread(void* arg);
-pthread_t watchdog_thread_id;
+static pthread_t watchdog_thread_id;
 void* hpsdrsim_watchdog_thread(void* arg);
-pthread_t discovery_thread_id;
+static pthread_t discovery_thread_id;
 void* hpsdrsim_discovery_thread(void* arg);
 void* hpsdrsim_sendiq_thr_func(void* arg);
 void* rtl_read_thr_func(void* arg);
