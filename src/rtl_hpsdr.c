@@ -162,23 +162,6 @@ get_addr (int sock)
 
    return 0;
 }
-
-int
-float_malloc_align (void **voidptr, int alignment, int bytes)
-{
-   *voidptr = _aligned_malloc (bytes, alignment);
-   if (*voidptr == NULL)
-      return 1;
-   else
-      return 0;
-}
-
-void
-float_free_align (float *ptr)
-{
-   _aligned_free ((void *) ptr);
-}
-
 #else
 
 int
@@ -228,6 +211,7 @@ get_addr (int sock)
 
    return 0;
 }
+#endif
 
 int
 float_malloc_align (void **voidptr, int alignment, int bytes)
@@ -240,7 +224,6 @@ float_free_align (float *ptr)
 {
    free ((void *) ptr);
 }
-#endif
 
 void
 hpsdrsim_reveal (void)

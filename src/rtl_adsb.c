@@ -441,7 +441,7 @@ int main(int argc, char **argv)
 		file = stdout;
 		setvbuf(stdout, NULL, _IONBF, 0);
 #ifdef _WIN32
-		_setmode(_fileno(file), _O_BINARY);
+		_setmode(fileno(file), O_BINARY);
 #endif
 	} else {
 		file = fopen(filename, "wb");

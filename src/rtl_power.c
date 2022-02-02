@@ -929,7 +929,7 @@ int main(int argc, char **argv)
 		file = stdout;
 #ifdef _WIN32
 		// Is this necessary?  Output is ascii.
-		_setmode(_fileno(file), _O_BINARY);
+		_setmode(fileno(file), O_BINARY);
 #endif
 	} else {
 		file = fopen(filename, "wb");
