@@ -418,20 +418,20 @@ hpsdrsim_reveal (void)
 	 } while (gotsize < trysize);
 	 printf ("Size set to %d\n", gotsize);
 #endif
-
-	 if (bind (reveal_socket, (struct sockaddr *) &my_addr, my_length) <
-	     0) {
+	 if (bind (reveal_socket, (struct sockaddr *) &my_addr, my_length) < 0) {
 	    perror ("3 bind socket failed for reveal_socket\n");
 	    exit (1);
 	 }
+    network_error = 0;
+    running = 1;
+    ready = true;
+	 continue;
       }
       else {
 	 //printf("Was NOT discovered by %s\n", inet_ntoa(their_addr.sin_addr));
       }
    }
-
    rc = pthread_create (&hpsdrsim_thread_id, NULL, hpsdrsim_thread, NULL);
-
    if (rc != 0) {
       printf ("pthread_create failed on hpsdr_thread: rc=%d\n", rc);
       exit (1);
@@ -643,8 +643,7 @@ hpsdrsim_thread (void *arg)
    //printf("ENTERING hpsdrsim_thread active rcvrs: %d\n", mcb.active_num_rcvrs);
 
    // start a watchdog to make sure we are sending frames
-   rc = pthread_create (&watchdog_thread_id, NULL,
-			hpsdrsim_watchdog_thread, NULL);
+   rc = pthread_create (&watchdog_thread_id, NULL, hpsdrsim_watchdog_thread, NULL);
 
    if (rc != 0) {
       printf ("pthread_create failed on hpsdrsim_watchdog_thread: rc=%d\n", rc);
