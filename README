@@ -2,10 +2,12 @@ rtl-sdr
 turns your Realtek RTL2832 based DVB dongle into a SDR receiver
 ======================================================================
 
+*UA3REO Windows build*
+
 For more information see:
 http://sdr.osmocom.org/trac/wiki/rtl-sdr
 
-This repository https://github.com/n1gp/librtlsdr was forked from
+This repository https://github.com/XGudron/librtlsdr was forked from https://github.com/n1gp/librtlsdr and
 https://github.com/steve-m/librtlsdr. It's purpose is to add the
 rtl_hpsdr application and allows building it for Windows or Linux.
 
