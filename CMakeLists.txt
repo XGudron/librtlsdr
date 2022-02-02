@@ -58,6 +58,10 @@ if(CMAKE_COMPILER_IS_GNUCC AND NOT WIN32)
     add_definitions(-fvisibility=hidden)
 endif()
 
+if(WIN32)
+    ADD_DEFINITIONS(-D_WIN32)
+endif()
+
 ########################################################################
 # Find build dependencies
 ########################################################################
