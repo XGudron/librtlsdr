@@ -1,0 +1,1 @@
+rtl_hpsdr.exe -c rtl_hpsdr.conf
